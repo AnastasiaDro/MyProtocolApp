@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyProtocolApp</string>
+    <string name="addNew">Add new</string>
+
+    <string-array name="myStudents">
+        <item>Алиса Ф.</item>
+        <item>Матвей Т.</item>
+        <item>Юра Н.</item>
+    </string-array>
+
+
+</resources>
