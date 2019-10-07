@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,10 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] namesArr;
     private ArrayList <String> namesArray;
     private ArrayList <Integer>  facesArr;
-
-
-
-
+    private Button addNewButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +33,12 @@ public class MainActivity extends AppCompatActivity {
             namesArray.add(namesArr[i]);
         }
 
-
         facesArr.add(R.drawable.picture_1);
         facesArr.add(R.drawable.picture_2);
         facesArr.add(R.drawable.picture_3);
 
-
-
         recyclerView = (RecyclerView) findViewById(R.id.recyclerStudents);
+        recyclerView.setScrollingTouchSlop(3);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
@@ -51,30 +48,13 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new MyAdapter(namesArray, facesArr);
         recyclerView.setAdapter(mAdapter);
 
+
+       // addNewButton = findViewById(R.id.addNewButton);
     }
 
-//    //преобразует строковый массив в TextView
-//    public ArrayList<TextView> stringArrayToTextView(ArrayList <String> arr){
-//        ArrayList <TextView> textViewArr = new ArrayList<>(arr.size());
-//
-//        for (int i = 0; i < arr.size(); i++) {
-//            TextView textView = new TextView(this);
-//            textViewArr.add(textView);
-//            textViewArr.get(i).setText(arr.get(i));
-//        }
-//
-//        return textViewArr;
-//    }
-//
-//    //преобразует ссылку на картинку в картинку
-//    public ArrayList <ImageView> imageIdArrayToImageView (ArrayList<Integer> arr) {
-//        ArrayList <ImageView> imageViewArrayList = new ArrayList<>(arr.size());
-//
-//        for (int i = 0; i < arr.size(); i++) {
-//            ImageView imageView = new ImageView(this);
-//            imageViewArrayList.add(imageView);
-//            imageViewArrayList.get(i).setImageResource(facesArr.get(i));
-//        }
-//    return imageViewArrayList;
-//    }
+    //Обработчик нажатия кнопки Add New
+    public void addNewClick(View view) {
+
+    }
+
 }
