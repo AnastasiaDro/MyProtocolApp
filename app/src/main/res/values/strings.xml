@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MyProtocolApp</string>
     <string name="addNew">Add new</string>
+    <string name="students_list">Select Student</string>
 
     <string-array name="myStudents">
         <item>Алиса Ф.</item>

@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         namesArr = getResources().getStringArray(R.array.myStudents);
         namesArray = new ArrayList<>();
-        facesArr = new ArrayList();
+        facesArr = new <Integer> ArrayList();
         for (int i = 0; i < namesArr.length; i++) {
             namesArray.add(namesArr[i]);
         }
@@ -47,34 +47,34 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new MyAdapter(stringArrayToTextView(namesArray), imageIdArrayToImageView(facesArr));
+        //mAdapter = new MyAdapter(stringArrayToTextView(namesArray));
+        mAdapter = new MyAdapter(namesArray, facesArr);
         recyclerView.setAdapter(mAdapter);
 
-
     }
 
-    //преобразует строковый массив в TextView
-    public ArrayList<TextView> stringArrayToTextView(ArrayList <String> arr){
-        ArrayList <TextView> textViewArr = new ArrayList<>(arr.size());
-
-        for (int i = 0; i < arr.size(); i++) {
-            TextView textView = new TextView(this);
-            textViewArr.add(textView);
-            textViewArr.get(i).setText(arr.get(i));
-        }
-
-        return textViewArr;
-    }
-
-    //преобразует ссылку на картинку в картинку
-    public ArrayList <ImageView> imageIdArrayToImageView (ArrayList<Integer> arr) {
-        ArrayList <ImageView> imageViewArrayList = new ArrayList<>(arr.size());
-
-        for (int i = 0; i < arr.size(); i++) {
-            ImageView imageView = new ImageView(this);
-            imageViewArrayList.add(imageView);
-            imageViewArrayList.get(i).setImageResource(facesArr.get(i));
-        }
-    return imageViewArrayList;
-    }
+//    //преобразует строковый массив в TextView
+//    public ArrayList<TextView> stringArrayToTextView(ArrayList <String> arr){
+//        ArrayList <TextView> textViewArr = new ArrayList<>(arr.size());
+//
+//        for (int i = 0; i < arr.size(); i++) {
+//            TextView textView = new TextView(this);
+//            textViewArr.add(textView);
+//            textViewArr.get(i).setText(arr.get(i));
+//        }
+//
+//        return textViewArr;
+//    }
+//
+//    //преобразует ссылку на картинку в картинку
+//    public ArrayList <ImageView> imageIdArrayToImageView (ArrayList<Integer> arr) {
+//        ArrayList <ImageView> imageViewArrayList = new ArrayList<>(arr.size());
+//
+//        for (int i = 0; i < arr.size(); i++) {
+//            ImageView imageView = new ImageView(this);
+//            imageViewArrayList.add(imageView);
+//            imageViewArrayList.get(i).setImageResource(facesArr.get(i));
+//        }
+//    return imageViewArrayList;
+//    }
 }
