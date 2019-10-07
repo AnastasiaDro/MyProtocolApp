@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ListFragment extends Fragment  {
-
+    int position;
     ArrayList<String> mTextSet;
     ArrayList <Integer> mImageIdSet;
 
@@ -34,6 +34,12 @@ public class ListFragment extends Fragment  {
         return view;
     }
 
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("CurrentChildPosition", position);
+    }
     //Обработчик нажатия кнопки Add New
     public void addNewClick(View v) {
         v = this.getView();

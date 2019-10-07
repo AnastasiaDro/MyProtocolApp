@@ -45,7 +45,11 @@ public class MainActivity extends AppCompatActivity {
         facesArr.add(R.drawable.picture_2);
         facesArr.add(R.drawable.picture_3);
 
+        Bundle bundle = new Bundle();
+        bundle.putInt("CurrentChildPosition", 0);
+
         ListFragment fragment = new ListFragment(namesArray, facesArr);
+        fragment.setArguments(bundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.add(R.id.placeholder, fragment);
