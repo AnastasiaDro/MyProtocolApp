@@ -44,12 +44,11 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        //mAdapter = new MyAdapter(stringArrayToTextView(namesArray));
         mAdapter = new MyAdapter(namesArray, facesArr);
         recyclerView.setAdapter(mAdapter);
 
 
-       // addNewButton = findViewById(R.id.addNewButton);
+        addNewButton = findViewById(R.id.addNewButton);
     }
 
     //Обработчик нажатия кнопки Add New
