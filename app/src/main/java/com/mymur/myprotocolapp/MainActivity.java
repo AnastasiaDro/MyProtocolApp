@@ -1,6 +1,11 @@
 package com.mymur.myprotocolapp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,7 +16,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main1);
         namesArr = getResources().getStringArray(R.array.myStudents);
         namesArray = new ArrayList<>();
         facesArr = new <Integer> ArrayList();
@@ -37,23 +45,32 @@ public class MainActivity extends AppCompatActivity {
         facesArr.add(R.drawable.picture_2);
         facesArr.add(R.drawable.picture_3);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerStudents);
-        recyclerView.setScrollingTouchSlop(3);
-        recyclerView.setHasFixedSize(true);
+        ListFragment fragment = new ListFragment(namesArray, facesArr);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.add(R.id.placeholder, fragment);
+        ft.commit();
 
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        }
 
-        mAdapter = new MyAdapter(namesArray, facesArr);
-        recyclerView.setAdapter(mAdapter);
-
-
-        addNewButton = findViewById(R.id.addNewButton);
-    }
-
-    //Обработчик нажатия кнопки Add New
+    //    //Обработчик нажатия кнопки Add New
     public void addNewClick(View view) {
 
     }
 
 }
+//        recyclerView = (RecyclerView) findViewById(R.id.recyclerStudents);
+//        recyclerView.setHasFixedSize(true);
+//
+//        layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+//
+//        mAdapter = new MyAdapter(namesArray, facesArr);
+//        recyclerView.setAdapter(mAdapter);
+//
+//
+//        addNewButton = findViewById(R.id.addNewButton);
+
+
+
+//}
