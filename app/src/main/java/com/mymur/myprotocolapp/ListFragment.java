@@ -19,6 +19,7 @@ public class ListFragment extends Fragment  {
     public ListFragment (ArrayList <String> mTextSet, ArrayList <Integer> mImageIdSet) {
         this.mTextSet = mTextSet;
         this.mImageIdSet = mImageIdSet;
+        this.setRetainInstance(true);
     }
 
 
