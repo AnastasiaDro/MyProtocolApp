@@ -10,7 +10,14 @@
         <item>Юра Н.</item>
     </string-array>
 
-
+    <string-array name="trials">
+        <item>пить</item>
+        <item>дай</item>
+        <item>ааауууааа</item>
+        <item>ееееей</item>
+        <item>веееей</item>
+        <item>Матвей</item>
+    </string-array>
 
 
 </resources>
