@@ -1,6 +1,9 @@
 package com.mymur.myprotocolapp;
 
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +28,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         public TextView textView;
         public ImageView imageView;
 
-    public MyViewHolder(View itemView) {
+    public MyViewHolder(final View itemView) {
         super(itemView);
         textView = itemView.findViewById(R.id.textName);
         imageView = itemView.findViewById(R.id.cardImage);
@@ -34,6 +37,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
             public void onClick(View v) {
                 System.out.println("нажали");
                 //сюда код обработки события нажатия
+                Intent intent = new Intent(textView.getContext(), ProtocolActivity.class);
+                itemView.getContext().startActivity(intent);
+
+
             }
         });
 
