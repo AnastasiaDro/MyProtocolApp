@@ -17,7 +17,7 @@ public class ProtocolActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private String[] trialsArr;
     private ArrayList<String> trialsArray;
-    private ArrayList <Integer>  facesArr;
+    private ArrayList <Integer>  imgArr;
     private Button addNewButton;
 
 
@@ -28,14 +28,15 @@ public class ProtocolActivity extends AppCompatActivity {
 
         trialsArr = getResources().getStringArray(R.array.trials);
         trialsArray = new ArrayList<>();
-        facesArr = new <Integer> ArrayList();
+        imgArr = new <Integer> ArrayList();
         for (int i = 0; i < trialsArr.length; i++) {
             trialsArray.add(trialsArr[i]);
+
         }
 
-        facesArr.add(R.drawable.picture_1);
-        facesArr.add(R.drawable.picture_2);
-        facesArr.add(R.drawable.picture_3);
+        imgArr.add(R.drawable.picture_1);
+        imgArr.add(R.drawable.picture_2);
+        imgArr.add(R.drawable.picture_3);
 
         Bundle bundle = new Bundle();
         bundle.putInt("CurrentChildPosition", 0);

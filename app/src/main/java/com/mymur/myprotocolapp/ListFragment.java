@@ -26,7 +26,7 @@ public class ListFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerForFragment);
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
         MyAdapter myAdapter = new MyAdapter(mTextSet, mImageIdSet);
         recyclerView.setAdapter(myAdapter);
         RecyclerView.LayoutManager layoutManager  = new LinearLayoutManager(getActivity());
