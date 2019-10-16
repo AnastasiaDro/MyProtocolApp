@@ -2,6 +2,7 @@
     <string name="app_name">MyProtocolApp</string>
     <string name="addNew">Add new</string>
     <string name="students_list">Select Student</string>
+    <string name="students">Students</string>
 
     <string-array name="myStudents">
         <item>Алиса Ф.</item>
