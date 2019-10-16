@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
         bundle.putInt("CurrentChildPosition", 0);
+        bundle.putIntegerArrayList("mTextSet", facesArr);
 
         ListFragment fragment = new ListFragment(namesArray, facesArr);
         fragment.setArguments(bundle);

@@ -18,13 +18,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     ArrayList <String> mTextSet;
     ArrayList <Integer> mImageIdSet;
 
+
+
+
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView textView;
         public ImageView imageView;
-    public MyViewHolder(View v) {
-        super(v);
-        textView = v.findViewById(R.id.textName);
-        imageView = v.findViewById(R.id.cardImage);
+
+    public MyViewHolder(View itemView) {
+        super(itemView);
+        textView = itemView.findViewById(R.id.textName);
+        imageView = itemView.findViewById(R.id.cardImage);
+        itemView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                System.out.println("нажали");
+                //сюда код обработки события нажатия
+            }
+        });
+
     }
     }
 
@@ -57,6 +69,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     public int getItemCount(){
         return mTextSet.size();
     }
+
+
+
+
 
 }
 
