@@ -3,14 +3,14 @@
     <string name="addNew">Add new</string>
     <string name="students_list">Select Student</string>
     <string name="students">Students</string>
+    <string name="setAnswer">Set answer</string>
+    <string name="begin">Begin</string>
 
     <string-array name="myStudents">
         <item>Алиса Ф.</item>
         <item>Матвей Т.</item>
         <item>Юра Н.</item>
     </string-array>
-
-
 
 
 </resources>
