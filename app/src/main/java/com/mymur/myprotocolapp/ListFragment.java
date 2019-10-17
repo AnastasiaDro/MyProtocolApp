@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -50,6 +52,14 @@ public class ListFragment extends Fragment  {
 
 
     //метод создания фрагмента сразу же с его отображением
-    //должно указываться:
+    //должно указываться: ArrayList <String> mTextSet, ArrayList <Integer> mImageIdSet, String mActivityName
+    //int id места, куда вставляется
+    public void putListFragment(ListFragment fragment, int id, FragmentManager fragmentManager){
+        //     fragment.setArguments(bundle);
+        //FragmentManager fragmentManager = this.getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.add(id, fragment);
+        ft.commit();
+    }
 
 }
