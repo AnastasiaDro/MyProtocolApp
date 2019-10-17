@@ -30,9 +30,13 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList <String> namesArray;
     private ArrayList <Integer>  facesArr;
     private Button addNewButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //имя активности
+        final String activityName = "MainActivity";
         setContentView(R.layout.activity_main1);
         namesArr = getResources().getStringArray(R.array.myStudents);
         namesArray = new ArrayList<>();
@@ -49,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putInt("CurrentChildPosition", 0);
         bundle.putIntegerArrayList("mTextSet", facesArr);
 
-        ListFragment fragment = new ListFragment(namesArray, facesArr);
+        ListFragment fragment = new ListFragment(namesArray, facesArr, activityName);
         fragment.setArguments(bundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();

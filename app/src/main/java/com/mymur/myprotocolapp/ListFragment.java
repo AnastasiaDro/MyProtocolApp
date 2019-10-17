@@ -15,11 +15,13 @@ public class ListFragment extends Fragment  {
     int position;
     ArrayList<String> mTextSet;
     ArrayList <Integer> mImageIdSet;
+    String mActivityName;
 
-    public ListFragment (ArrayList <String> mTextSet, ArrayList <Integer> mImageIdSet) {
+    public ListFragment (ArrayList <String> mTextSet, ArrayList <Integer> mImageIdSet, String mActivityName) {
         this.mTextSet = mTextSet;
         this.mImageIdSet = mImageIdSet;
         this.setRetainInstance(true);
+        this.mActivityName = mActivityName;
     }
 
 
@@ -27,7 +29,7 @@ public class ListFragment extends Fragment  {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerForFragment);
         recyclerView.setHasFixedSize(true);
-        MyAdapter myAdapter = new MyAdapter(mTextSet, mImageIdSet);
+        MyAdapter myAdapter = new MyAdapter(mTextSet, mImageIdSet, mActivityName);
         recyclerView.setAdapter(myAdapter);
         RecyclerView.LayoutManager layoutManager  = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
