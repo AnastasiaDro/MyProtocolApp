@@ -47,4 +47,9 @@ public class ListFragment extends Fragment  {
     public void addNewClick(View v) {
         v = this.getView();
     }
+
+
+    //метод создания фрагмента сразу же с его отображением
+    //должно указываться:
+
 }
