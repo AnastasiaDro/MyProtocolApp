@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 //        bundle.putIntegerArrayList("mTextSet", facesArr);
 
       //  ListFragment fragment = new ListFragment(namesArray, facesArr);
-        ListFragment fragment = new ListFragment(namesArray, Constants.MAIN_ACTIVITY_KEY, Constants.MAIN_ACTIVITY_TITLE);
+        ListFragment fragment = new ListFragment(namesArray,  Constants.MAIN_ACTIVITY_TITLE);
         fragment.setArguments(bundle);
         fragment.postFragment(R.id.placeholder, this);
 

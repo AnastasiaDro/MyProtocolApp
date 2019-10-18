@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     ArrayList <String> mTextSet;
  //   ArrayList <Integer> mImageIdSet;
-     int mActivityKey;
+     int mActivityTitleKey;
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -40,12 +40,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 //сюда код обработки события нажатия
     //если активность MainActivity, то
             switch (activityKey) {
-                case (Constants.MAIN_ACTIVITY_KEY):
+                case (Constants.MAIN_ACTIVITY_TITLE):
                         Intent intent = new Intent(textView.getContext(), ProtocolActivity.class);
                         intent.putExtra("Child", textView.getText().toString());
                         itemView.getContext().startActivity(intent);
                     break;
-                case (Constants.PROTOCOL_ACTIVITY_KEY):
+                case (Constants.PROTOCOL_ACTIVITY_TITLE):
                     //Если активность protocolActivity, то
                     break;
             }
@@ -56,9 +56,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     //provide a suitable constructor (depends on the kind of dataset)
    // public MyAdapter(ArrayList<String> myTextSet, ArrayList <Integer> myImageIdSet) {
-     public MyAdapter(ArrayList<String> myTextSet, int myActivityKey) {
+     public MyAdapter(ArrayList<String> myTextSet, int myActivityTitleKey) {
         mTextSet = myTextSet;
-        mActivityKey = myActivityKey;
+        mActivityTitleKey = myActivityTitleKey;
      //   mImageIdSet = myImageIdSet;
     }
 
@@ -67,7 +67,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     public MyAdapter.MyViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
         //create a new view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.linear_card, parent, false);
-        MyViewHolder vh = new MyViewHolder(v, mActivityKey);
+        MyViewHolder vh = new MyViewHolder(v, mActivityTitleKey);
         return vh;
     }
 

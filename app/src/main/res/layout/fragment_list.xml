@@ -7,7 +7,10 @@
         android:id="@+id/listTitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/set_student" />
+        android:text="@string/set_student"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerForFragment"

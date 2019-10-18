@@ -20,16 +20,16 @@ public class ListFragment extends Fragment  {
     int position;
     ArrayList<String> mTextSet;
     ArrayList <Integer> mImageIdSet;
-    int activityKey;
+
     int listTitleKey;
     TextView listTitleTextView;
 
   //  public ListFragment (ArrayList <String> mTextSet, ArrayList <Integer> mImageIdSet) {
-           public ListFragment (ArrayList <String> mTextSet, int activityKey, int listTitleKey) {
+           public ListFragment (ArrayList <String> mTextSet, int listTitleKey) {
         this.mTextSet = mTextSet;
      //   this.mImageIdSet = mImageIdSet;
         this.setRetainInstance(true);
-        this.activityKey = activityKey;
+
         this.listTitleKey = listTitleKey;
     }
 
@@ -40,7 +40,7 @@ public class ListFragment extends Fragment  {
         makeListTitle(view);
         //recyclerView.setHasFixedSize(true);
        // MyAdapter myAdapter = new MyAdapter(mTextSet, mImageIdSet);
-        MyAdapter myAdapter = new MyAdapter(mTextSet, activityKey);
+        MyAdapter myAdapter = new MyAdapter(mTextSet, listTitleKey);
         recyclerView.setAdapter(myAdapter);
         RecyclerView.LayoutManager layoutManager  = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
