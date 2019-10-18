@@ -28,29 +28,27 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private String[] namesArr;
     private ArrayList <String> namesArray;
-    private ArrayList <Integer>  facesArr;
+   // private ArrayList <Integer>  facesArr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main1);
         namesArr = getResources().getStringArray(R.array.myStudents);
         namesArray = new ArrayList<>();
-        facesArr = new <Integer> ArrayList();
+    //    facesArr = new <Integer> ArrayList();
         for (int i = 0; i < namesArr.length; i++) {
             namesArray.add(namesArr[i]);
         }
 
-        facesArr.add(R.drawable.picture_1);
-        facesArr.add(R.drawable.picture_2);
-        facesArr.add(R.drawable.picture_3);
 
         Bundle bundle = new Bundle();
         bundle.putInt("CurrentChildPosition", 0);
-        bundle.putIntegerArrayList("mTextSet", facesArr);
+//        bundle.putIntegerArrayList("mTextSet", facesArr);
 
       //  ListFragment fragment = new ListFragment(namesArray, facesArr);
-        ListFragment fragment = new ListFragment(namesArray);
+        ListFragment fragment = new ListFragment(namesArray, Constants.MAIN_ACTIVITY_KEY, Constants.MAIN_ACTIVITY_TITLE);
         fragment.setArguments(bundle);
         fragment.postFragment(R.id.placeholder, this);
 

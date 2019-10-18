@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -19,27 +20,34 @@ public class ListFragment extends Fragment  {
     int position;
     ArrayList<String> mTextSet;
     ArrayList <Integer> mImageIdSet;
+    int activityKey;
+    int listTitleKey;
+    TextView listTitleTextView;
 
   //  public ListFragment (ArrayList <String> mTextSet, ArrayList <Integer> mImageIdSet) {
-           public ListFragment (ArrayList <String> mTextSet) {
+           public ListFragment (ArrayList <String> mTextSet, int activityKey, int listTitleKey) {
         this.mTextSet = mTextSet;
      //   this.mImageIdSet = mImageIdSet;
         this.setRetainInstance(true);
+        this.activityKey = activityKey;
+        this.listTitleKey = listTitleKey;
     }
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerForFragment);
+        makeListTitle(view);
         //recyclerView.setHasFixedSize(true);
        // MyAdapter myAdapter = new MyAdapter(mTextSet, mImageIdSet);
-        MyAdapter myAdapter = new MyAdapter(mTextSet);
+        MyAdapter myAdapter = new MyAdapter(mTextSet, activityKey);
         recyclerView.setAdapter(myAdapter);
         RecyclerView.LayoutManager layoutManager  = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-
         return view;
     }
+
+
 
 
     @Override
@@ -58,6 +66,13 @@ public class ListFragment extends Fragment  {
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.add(idPlaceHolder, this);
         ft.commit();
+
+    }
+
+    //задает название списку
+    public void makeListTitle(View view){
+        listTitleTextView = view.findViewById(R.id.listTitleText);
+        listTitleTextView.setText(listTitleKey);
     }
 
 }

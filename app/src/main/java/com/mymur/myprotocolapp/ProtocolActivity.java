@@ -17,8 +17,8 @@ public class ProtocolActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private String[] trialsArr;
     private ArrayList<String> trialsArray;
-    private ArrayList <Integer>  imgArr;
-    private Button addNewButton;
+//    private ArrayList <Integer>  imgArr;
+
 
 
     @Override
@@ -28,7 +28,7 @@ public class ProtocolActivity extends AppCompatActivity {
 
         trialsArr = getResources().getStringArray(R.array.trials);
         trialsArray = new ArrayList<>();
-        imgArr = new <Integer> ArrayList();
+//        imgArr = new <Integer> ArrayList();
         for (int i = 0; i < trialsArr.length; i++) {
             trialsArray.add(trialsArr[i]);
 
@@ -43,13 +43,9 @@ public class ProtocolActivity extends AppCompatActivity {
       //  bundle.putIntegerArrayList("mTextSet", );
 
 
-        ListFragment fragment = new ListFragment(trialsArray);
+        ListFragment fragment = new ListFragment(trialsArray, Constants.PROTOCOL_ACTIVITY_KEY, Constants.PROTOCOL_ACTIVITY_TITLE);
         fragment.setArguments(bundle);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.add(R.id.placeholderForList, fragment);
-        ft.commit();
-
+        fragment.postFragment(R.id.placeholderForList, this);
 
     }
 }

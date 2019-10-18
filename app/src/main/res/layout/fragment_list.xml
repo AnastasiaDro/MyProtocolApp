@@ -4,10 +4,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/studentsText"
+        android:id="@+id/listTitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/students" />
+        android:text="@string/set_student" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerForFragment"
