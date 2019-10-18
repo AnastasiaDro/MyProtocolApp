@@ -46,7 +46,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                         itemView.getContext().startActivity(intent);
                     break;
                 case (Constants.PROTOCOL_ACTIVITY_TITLE):
-                    //Если активность protocolActivity, то
+                    //Если активность protocolActivity, то при нажатии на пробу заполняется массив этой пробы и
+
+
                     break;
             }
             }
