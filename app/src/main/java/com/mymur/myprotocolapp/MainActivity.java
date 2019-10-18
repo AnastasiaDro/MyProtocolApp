@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] namesArr;
     private ArrayList <String> namesArray;
     private ArrayList <Integer>  facesArr;
-    private Button addNewButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,33 +49,12 @@ public class MainActivity extends AppCompatActivity {
         bundle.putInt("CurrentChildPosition", 0);
         bundle.putIntegerArrayList("mTextSet", facesArr);
 
-        ListFragment fragment = new ListFragment(namesArray, facesArr);
+      //  ListFragment fragment = new ListFragment(namesArray, facesArr);
+        ListFragment fragment = new ListFragment(namesArray);
         fragment.setArguments(bundle);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.add(R.id.placeholder, fragment);
-        ft.commit();
+        fragment.postFragment(R.id.placeholder, this);
 
         }
 
-    //    //Обработчик нажатия кнопки Add New
-    public void addNewClick(View view) {
-
-    }
-
 }
-//        recyclerView = (RecyclerView) findViewById(R.id.recyclerStudents);
-//        recyclerView.setHasFixedSize(true);
-//
-//        layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        mAdapter = new MyAdapter(namesArray, facesArr);
-//        recyclerView.setAdapter(mAdapter);
-//
-//
-//        addNewButton = findViewById(R.id.addNewButton);
 
-
-
-//}

@@ -34,16 +34,16 @@ public class ProtocolActivity extends AppCompatActivity {
 
         }
 
-        imgArr.add(R.drawable.picture_1);
-        imgArr.add(R.drawable.picture_2);
-        imgArr.add(R.drawable.picture_3);
+//        imgArr.add(R.drawable.picture_1);
+//        imgArr.add(R.drawable.picture_2);
+//        imgArr.add(R.drawable.picture_3);
 
         Bundle bundle = new Bundle();
         bundle.putInt("CurrentChildPosition", 0);
-        bundle.putIntegerArrayList("mTextSet", facesArr);
+      //  bundle.putIntegerArrayList("mTextSet", );
 
 
-        ListFragment fragment = new ListFragment(trialsArray, facesArr);
+        ListFragment fragment = new ListFragment(trialsArray);
         fragment.setArguments(bundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();

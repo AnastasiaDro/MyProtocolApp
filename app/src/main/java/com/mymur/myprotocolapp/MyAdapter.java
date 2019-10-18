@@ -19,19 +19,19 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     ArrayList <String> mTextSet;
-    ArrayList <Integer> mImageIdSet;
+ //   ArrayList <Integer> mImageIdSet;
 
 
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView textView;
-        public ImageView imageView;
+  //      public ImageView imageView;
 
     public MyViewHolder(final View itemView) {
         super(itemView);
         textView = itemView.findViewById(R.id.textName);
-        imageView = itemView.findViewById(R.id.cardImage);
+    //    imageView = itemView.findViewById(R.id.cardImage);
         itemView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -48,9 +48,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     }
 
     //provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(ArrayList<String> myTextSet, ArrayList <Integer> myImageIdSet) {
+   // public MyAdapter(ArrayList<String> myTextSet, ArrayList <Integer> myImageIdSet) {
+     public MyAdapter(ArrayList<String> myTextSet) {
         mTextSet = myTextSet;
-        mImageIdSet = myImageIdSet;
+     //   mImageIdSet = myImageIdSet;
     }
 
     //Create new views
@@ -68,7 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
         //get element from your dataset at this position
         //replace the contents of the view with that element
         holder.textView.setText(mTextSet.get(position));
-        holder.imageView.setImageResource(mImageIdSet.get(position));
+   //     holder.imageView.setImageResource(mImageIdSet.get(position));
     }
 
     //Return the siae of your dataset (invoked by the layout manager)
