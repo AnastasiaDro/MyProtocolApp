@@ -57,7 +57,7 @@ public class MyFileManager {
         } catch (IOException e){
             System.out.println("ошибка закрытия файла");
         }
-
+        System.out.println(studentsNameArr.toString());
         return  studentsNameArr;
     }
 

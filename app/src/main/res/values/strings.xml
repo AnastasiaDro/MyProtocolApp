@@ -3,8 +3,13 @@
     <string name="addNew">Add new</string>
     <string name="set_student">Select student</string>
     <string name="students">Students</string>
+
     <string name="set_trial">Select trial</string>
     <string name="enter_name">Enter name</string>
+
+    <string name="setAnswer">Set answer</string>
+    <string name="begin">Begin</string>
+
 
     <string-array name="myStudents">
         <item>Алиса Ф.</item>
@@ -12,13 +17,14 @@
         <item>Юра Н.</item>
     </string-array>
 
-    <string-array name="trials">
+<string-array name="trials">
         <item>пить</item>
         <item>дай</item>
         <item>ааауууааа</item>
         <item>дай</item>
         <item>ааауууааа</item>
     </string-array>
+
 
 
 </resources>
