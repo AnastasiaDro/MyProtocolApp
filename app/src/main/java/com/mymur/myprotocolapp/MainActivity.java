@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main1);
         namesArr = getResources().getStringArray(R.array.myStudents);
         namesArray = new ArrayList<>();
-    //    facesArr = new <Integer> ArrayList();
+
         for (int i = 0; i < namesArr.length; i++) {
             namesArray.add(namesArr[i]);
         }
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         fragment.postFragment(R.id.placeholder, this);
 
         }
+
 
 }
 
