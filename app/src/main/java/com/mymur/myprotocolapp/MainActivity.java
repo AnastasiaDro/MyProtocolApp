@@ -9,8 +9,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -28,11 +30,15 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private String[] namesArr;
     private ArrayList <String> namesArray;
-   // private ArrayList <Integer>  facesArr;
+    private SharedPreferences myPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //сохранение массива с именами
+        myPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+
 
         setContentView(R.layout.activity_main1);
         namesArr = getResources().getStringArray(R.array.myStudents);

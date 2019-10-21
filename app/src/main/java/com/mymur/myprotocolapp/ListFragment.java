@@ -24,8 +24,6 @@ import java.util.ArrayList;
 public class ListFragment extends Fragment  {
     int position;
     ArrayList<String> mTextSet;
-    ArrayList <Integer> mImageIdSet;
-
     int listTitleKey;
     TextView listTitleTextView;
     MaterialButton addNewBtn;
