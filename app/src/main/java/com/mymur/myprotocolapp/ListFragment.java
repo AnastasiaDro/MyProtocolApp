@@ -21,20 +21,24 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
-public class ListFragment extends Fragment  {
+public class ListFragment extends Fragment implements Observer  {
     int position;
     ArrayList<String> mTextSet;
     int listTitleKey;
     TextView listTitleTextView;
     MaterialButton addNewBtn;
 
+    //Класс с данными
+    private MyDataClass myDataClass;
+
   //  public ListFragment (ArrayList <String> mTextSet, ArrayList <Integer> mImageIdSet) {
-           public ListFragment (ArrayList <String> mTextSet, int listTitleKey) {
+           public ListFragment (ArrayList <String> mTextSet, int listTitleKey, MyDataClass myDataClass) {
         this.mTextSet = mTextSet;
      //   this.mImageIdSet = mImageIdSet;
         this.setRetainInstance(true);
-
         this.listTitleKey = listTitleKey;
+        this.myDataClass = myDataClass;
+        myDataClass.registerObserver(this);
     }
 
 
@@ -99,8 +103,13 @@ public class ListFragment extends Fragment  {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                mTextSet.add(input.getText().toString());
+                String myInputString = input.getText().toString();
+                //mTextSet.add(myInputString);
                 recyclerView.getAdapter().notifyDataSetChanged();
+                //вот здесь надо в namesArray из MainActivity добавить этот элемент
+               // MyDataClass.addToNamesArray(myInputString);
+                myDataClass.setData(mTextSet, myInputString);
+
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -112,6 +121,10 @@ public class ListFragment extends Fragment  {
         builder.show();
     }
 
+        @Override
+    public void update(ArrayList <String> stringArrayList, String newString) {
+               stringArrayList.add(newString);
+        }
 }
 
 

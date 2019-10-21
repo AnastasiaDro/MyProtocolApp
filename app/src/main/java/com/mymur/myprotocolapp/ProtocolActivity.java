@@ -17,6 +17,7 @@ public class ProtocolActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private String[] trialsArr;
     private ArrayList<String> trialsArray;
+    private MyDataClass myDataClass;
 //    private ArrayList <Integer>  imgArr;
 
 
@@ -24,6 +25,7 @@ public class ProtocolActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        myDataClass = new MyDataClass();
         setContentView(R.layout.activity_protocol);
 
         trialsArr = getResources().getStringArray(R.array.trials);
@@ -43,7 +45,7 @@ public class ProtocolActivity extends AppCompatActivity {
       //  bundle.putIntegerArrayList("mTextSet", );
 
 
-        ListFragment fragment = new ListFragment(trialsArray, Constants.PROTOCOL_ACTIVITY_TITLE);
+        ListFragment fragment = new ListFragment(trialsArray, Constants.PROTOCOL_ACTIVITY_TITLE, myDataClass);
         fragment.setArguments(bundle);
         fragment.postFragment(R.id.placeholderForList, this);
 

@@ -28,37 +28,49 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private String[] namesArr;
+  //  private String[] namesArr;
     private ArrayList <String> namesArray;
     private SharedPreferences myPreferences;
-
+    private MySaver mySaver;
+    public static final String NAMES_KEY = "NAMES_KEY";
+    private MyDataClass myDataClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //сохранение массива с именами
-        myPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+        myDataClass = new MyDataClass();
 
+
+        mySaver = new MySaver(MainActivity.this, myDataClass);
 
         setContentView(R.layout.activity_main1);
-        namesArr = getResources().getStringArray(R.array.myStudents);
+     //   namesArr = getResources().getStringArray(R.array.myStudents);
         namesArray = new ArrayList<>();
 
-        for (int i = 0; i < namesArr.length; i++) {
-            namesArray.add(namesArr[i]);
-        }
-
+//        for (int i = 0; i < namesArr.length; i++) {
+//            namesArray.add(namesArr[i]);
+//        }
+       namesArray = mySaver.getSavedStringArr(NAMES_KEY);
 
         Bundle bundle = new Bundle();
         bundle.putInt("CurrentChildPosition", 0);
 //        bundle.putIntegerArrayList("mTextSet", facesArr);
 
       //  ListFragment fragment = new ListFragment(namesArray, facesArr);
-        ListFragment fragment = new ListFragment(namesArray,  Constants.MAIN_ACTIVITY_TITLE);
+        ListFragment fragment = new ListFragment(namesArray,  Constants.MAIN_ACTIVITY_TITLE, myDataClass);
+        //ListFragment fragment = new ListFragment(myDataClass.namesArray,  Constants.MAIN_ACTIVITY_TITLE);
         fragment.setArguments(bundle);
         fragment.postFragment(R.id.placeholder, this);
 
         }
+
+        @Override
+    protected void onStop(){
+        super.onStop();
+        mySaver.saveStringsArr(NAMES_KEY, namesArray);
+        }
+
+
 
 
 }

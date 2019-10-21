@@ -1,4 +1,7 @@
 package com.mymur.myprotocolapp;
+
+import java.util.ArrayList;
+
 interface Observer {
-    void update (float temperature, float humidity, int pressure);
+    void update (ArrayList <String> stringsArray, String newString);
 }
