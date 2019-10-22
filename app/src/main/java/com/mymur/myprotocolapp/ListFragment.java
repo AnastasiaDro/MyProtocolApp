@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class ListFragment extends Fragment implements Observer  {
     int position;
     ArrayList<String> mTextSet;
+    ArrayList <String> mTrialsArray;
     int listTitleKey;
     TextView listTitleTextView;
     MaterialButton addNewBtn;
@@ -35,7 +36,7 @@ public class ListFragment extends Fragment implements Observer  {
     private MyDataClass myDataClass;
 
   //  public ListFragment (ArrayList <String> mTextSet, ArrayList <Integer> mImageIdSet) {
-           public ListFragment (ArrayList <String> mTextSet, int listTitleKey, MyDataClass myDataClass, int placeId) {
+           public ListFragment (ArrayList <String> mTextSet, int listTitleKey, MyDataClass myDataClass, int placeId, ArrayList <String> mTrialsArray) {
         this.mTextSet = mTextSet;
      //   this.mImageIdSet = mImageIdSet;
         this.setRetainInstance(true);
@@ -44,6 +45,7 @@ public class ListFragment extends Fragment implements Observer  {
         this.placeId = placeId;
         myDataClass.registerObserver(this);
         fragment = this;
+        this.mTrialsArray = mTrialsArray;
     }
 
 
@@ -54,8 +56,7 @@ public class ListFragment extends Fragment implements Observer  {
         addNewBtn.setOnClickListener(madeOnAddNewClickListener(recyclerView));
         makeListTitle(view);
         recyclerView.setHasFixedSize(true);
-       // MyAdapter myAdapter = new MyAdapter(mTextSet, mImageIdSet);
-        MyAdapter myAdapter = new MyAdapter(mTextSet, listTitleKey);
+        MyAdapter myAdapter = new MyAdapter(mTextSet, listTitleKey, mTrialsArray);
         recyclerView.setAdapter(myAdapter);
         RecyclerView.LayoutManager layoutManager  = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
@@ -112,6 +113,7 @@ public class ListFragment extends Fragment implements Observer  {
 
                // MyDataClass.addToNamesArray(myInputString);
                 myDataClass.setData(mTextSet, myInputString);
+                recyclerView.refreshDrawableState();
                 reDrawFragment(fragment);
             }
         });
@@ -125,8 +127,8 @@ public class ListFragment extends Fragment implements Observer  {
     }
 
         @Override
-    public void update(ArrayList <String> stringArrayList, String newString) {
-               stringArrayList.add(newString);
+    public void update(String newString) {
+               mTextSet.add(newString);
         }
 
         public void reDrawFragment(Fragment fragment){

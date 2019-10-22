@@ -45,7 +45,7 @@ public class MySaver implements Observer {
     }
 
     @Override
-    public void update(ArrayList<String> stringsArray, String newString) {
+    public void update(String newString) {
         ///????? WTF?!?!?!?!
 //        ArrayList myArr= new ArrayList();
 //        myArr.addAll(stringsArray);

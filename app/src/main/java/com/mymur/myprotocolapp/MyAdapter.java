@@ -4,6 +4,7 @@ package com.mymur.myprotocolapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.provider.SyncStateContract;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     ArrayList <String> mTextSet;
+    ArrayList <String> mTrialsArray;
  //   ArrayList <Integer> mImageIdSet;
      int mActivityTitleKey;
 
@@ -29,7 +31,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
   //      public ImageView imageView;
 
 
-    public MyViewHolder(final View itemView, final int activityKey) {
+    public MyViewHolder(final View itemView, final int activityKey, final ArrayList <String> myTrialsArray) {
         super(itemView);
         textView = itemView.findViewById(R.id.textName);
     //    imageView = itemView.findViewById(R.id.cardImage);
@@ -43,6 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
                 case (Constants.MAIN_ACTIVITY_TITLE):
                         Intent intent = new Intent(textView.getContext(), ProtocolActivity.class);
                         intent.putExtra("Child", textView.getText().toString());
+                        intent.putExtra("TrialsArray", myTrialsArray);
                         itemView.getContext().startActivity(intent);
                     break;
                 case (Constants.PROTOCOL_ACTIVITY_TITLE):
@@ -58,9 +61,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
 
     //provide a suitable constructor (depends on the kind of dataset)
    // public MyAdapter(ArrayList<String> myTextSet, ArrayList <Integer> myImageIdSet) {
-     public MyAdapter(ArrayList<String> myTextSet, int myActivityTitleKey) {
+     public MyAdapter(ArrayList<String> myTextSet, int myActivityTitleKey, ArrayList <String> myTrialsArray) {
         mTextSet = myTextSet;
         mActivityTitleKey = myActivityTitleKey;
+        mTrialsArray = myTrialsArray;
      //   mImageIdSet = myImageIdSet;
     }
 
@@ -69,7 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
     public MyAdapter.MyViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
         //create a new view
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.linear_card, parent, false);
-        MyViewHolder vh = new MyViewHolder(v, mActivityTitleKey);
+        MyViewHolder vh = new MyViewHolder(v, mActivityTitleKey, mTrialsArray);
         return vh;
     }
 
