@@ -1,6 +1,5 @@
 package com.mymur.myprotocolapp;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -110,8 +109,6 @@ public class ListFragment extends Fragment implements Observer  {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String myInputString = input.getText().toString();
-
-               // MyDataClass.addToNamesArray(myInputString);
                 myDataClass.setData(mTextSet, myInputString);
                 recyclerView.refreshDrawableState();
                 reDrawFragment(fragment);

@@ -34,7 +34,6 @@ public class MyDataClass implements Observable{
         namesArray = new ArrayList<>();
         trialsArray = new ArrayList<>();
         myDbSaver = new MyDbSaver(this, activity);
-
         observers = new LinkedList<>();
         namesArray = myDbSaver.getStudentsNames();
         trialsArray = myDbSaver.getTrialsNames();
@@ -55,18 +54,6 @@ public class MyDataClass implements Observable{
 
     @Override
     public void notifyObservers() {
-//        switch (ConstantsActivityTitle){
-//            case (Constants.MAIN_ACTIVITY_TITLE):
-//                for (Observer observer : observers) {
-//                    observer.update(namesArray, newString);
-//                }
-//             break;
-//            case (Constants.PROTOCOL_ACTIVITY_TITLE):
-//                    for (Observer observer : observers) {
-//                 observer.update(trialsArray, newString);
-//             }
-//             break;
-//             }
         for (Observer observer : observers) {
             observer.update(newString);
         }

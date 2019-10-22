@@ -3,11 +3,8 @@ package com.mymur.myprotocolapp;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
-
 import java.util.ArrayList;
-import java.util.Date;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -21,8 +18,7 @@ public class MyDbSaver implements Observer {
     ArrayList <String> newStudentsNamesArr;
     ArrayList <String> newTrialsArr;
 
-    String studentName;
-    String trialName;
+
 
 
     public void setACTIVITY_TITLE(int ACTIVITY_TITLE) {
