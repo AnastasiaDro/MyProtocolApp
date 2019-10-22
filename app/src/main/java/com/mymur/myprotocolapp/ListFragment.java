@@ -1,5 +1,6 @@
 package com.mymur.myprotocolapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -27,18 +28,22 @@ public class ListFragment extends Fragment implements Observer  {
     int listTitleKey;
     TextView listTitleTextView;
     MaterialButton addNewBtn;
+    int placeId;
+    Fragment fragment;
 
     //Класс с данными
     private MyDataClass myDataClass;
 
   //  public ListFragment (ArrayList <String> mTextSet, ArrayList <Integer> mImageIdSet) {
-           public ListFragment (ArrayList <String> mTextSet, int listTitleKey, MyDataClass myDataClass) {
+           public ListFragment (ArrayList <String> mTextSet, int listTitleKey, MyDataClass myDataClass, int placeId) {
         this.mTextSet = mTextSet;
      //   this.mImageIdSet = mImageIdSet;
         this.setRetainInstance(true);
         this.listTitleKey = listTitleKey;
         this.myDataClass = myDataClass;
+        this.placeId = placeId;
         myDataClass.registerObserver(this);
+        fragment = this;
     }
 
 
@@ -65,10 +70,10 @@ public class ListFragment extends Fragment implements Observer  {
     }
 
 
-    public void postFragment(int idPlaceHolder, AppCompatActivity activity){
+    public void postFragment(AppCompatActivity activity){
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.add(idPlaceHolder, this);
+        ft.add(placeId, this);
         ft.commit();
 
     }
@@ -104,12 +109,10 @@ public class ListFragment extends Fragment implements Observer  {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String myInputString = input.getText().toString();
-                //mTextSet.add(myInputString);
-                recyclerView.getAdapter().notifyDataSetChanged();
-                //вот здесь надо в namesArray из MainActivity добавить этот элемент
+
                // MyDataClass.addToNamesArray(myInputString);
                 myDataClass.setData(mTextSet, myInputString);
-
+                reDrawFragment(fragment);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -125,6 +128,18 @@ public class ListFragment extends Fragment implements Observer  {
     public void update(ArrayList <String> stringArrayList, String newString) {
                stringArrayList.add(newString);
         }
+
+        public void reDrawFragment(Fragment fragment){
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.detach(fragment);
+            ft.attach(fragment);
+            ft.commit();
+        }
+
+
+
+
 }
 
 

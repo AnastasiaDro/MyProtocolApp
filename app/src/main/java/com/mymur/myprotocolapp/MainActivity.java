@@ -1,27 +1,12 @@
 package com.mymur.myprotocolapp;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
-import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
 //        bundle.putIntegerArrayList("mTextSet", facesArr);
 
       //  ListFragment fragment = new ListFragment(namesArray, facesArr);
-        ListFragment fragment = new ListFragment(namesArray,  Constants.MAIN_ACTIVITY_TITLE, myDataClass);
+        ListFragment fragment = new ListFragment(namesArray,  Constants.MAIN_ACTIVITY_TITLE, myDataClass, R.id.placeholder);
         //ListFragment fragment = new ListFragment(myDataClass.namesArray,  Constants.MAIN_ACTIVITY_TITLE);
         fragment.setArguments(bundle);
-        fragment.postFragment(R.id.placeholder, this);
+        fragment.postFragment(this);
 
         }
 

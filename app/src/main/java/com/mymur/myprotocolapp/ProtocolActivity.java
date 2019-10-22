@@ -45,9 +45,9 @@ public class ProtocolActivity extends AppCompatActivity {
       //  bundle.putIntegerArrayList("mTextSet", );
 
 
-        ListFragment fragment = new ListFragment(trialsArray, Constants.PROTOCOL_ACTIVITY_TITLE, myDataClass);
+        ListFragment fragment = new ListFragment(trialsArray, Constants.PROTOCOL_ACTIVITY_TITLE, myDataClass, R.id.placeholderForList);
         fragment.setArguments(bundle);
-        fragment.postFragment(R.id.placeholderForList, this);
+        fragment.postFragment(this);
 
     }
 }
