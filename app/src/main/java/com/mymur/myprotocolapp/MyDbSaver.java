@@ -52,6 +52,7 @@ public class MyDbSaver implements Observer {
     }
 
     public void createTablesForDb(){
+        //clearBd(myDb);
         myDb.execSQL("CREATE TABLE IF NOT EXISTS Students (id_student INT, name VARCHAR(40))");
         myDb.execSQL("CREATE TABLE IF NOT EXISTS Trials (id_trial INT, name VARCHAR(20))");
         myDb.execSQL("CREATE TABLE IF NOT EXISTS practisingSet(id_practising INT, date TEXT, id_student INT, id_trial INT, trial_number_times, ideal_times, with_hit_times, bad_times)");
@@ -116,6 +117,9 @@ public class MyDbSaver implements Observer {
         }
     }
 
-
+    private void clearBd(SQLiteDatabase myDb) {
+        myDb.delete("Students", null, null);
+        myDb.delete("Trials", null, null);
+    }
 
 }

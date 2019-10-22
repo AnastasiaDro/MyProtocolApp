@@ -33,6 +33,7 @@ public class ProtocolActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         myDataClass.getMyDbSaver().saveTrialsToDb();
+        //myDataClass.getMyDbSaver().saveStudentsToDb();
     }
 }
 
