@@ -10,21 +10,4 @@
     <string name="setAnswer">Set answer</string>
     <string name="begin">Begin</string>
 
-
-    <string-array name="myStudents">
-        <item>Алиса Ф.</item>
-        <item>Матвей Т.</item>
-        <item>Юра Н.</item>
-    </string-array>
-
-<string-array name="trials">
-        <item>пить</item>
-        <item>дай</item>
-        <item>ааауууааа</item>
-        <item>дай</item>
-        <item>ааауууааа</item>
-    </string-array>
-
-
-
 </resources>
