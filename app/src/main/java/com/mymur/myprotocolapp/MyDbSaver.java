@@ -122,4 +122,9 @@ public class MyDbSaver implements Observer {
         myDb.delete("Trials", null, null);
     }
 
+    protected void fillpractisingSet(){
+        //TODO
+    }
+
+
 }
